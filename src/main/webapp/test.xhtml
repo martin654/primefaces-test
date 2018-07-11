@@ -14,5 +14,27 @@
 
         <h1>#{testViewCdi.testString}</h1>
 
+      <h:form>
+        <p:dataTable id="productTableId" widgetVar="productTable" var="row" value="#{testViewCdi.testList}"
+            selection="#{testViewCdi.testListSelected}"
+            rowKey="#{row}">
+  
+          <f:facet name="header">
+            <p:commandButton id="actionBtn" value="Action" action="#{testViewCdi.fooAction()}" styleClass="BB" style="margin: 0; float: left;"
+                disabled="#{empty testViewCdi.testListSelected}" />
+          </f:facet>
+  
+          <p:ajax event="rowSelectCheckbox" update="@this" global="false" ignoreAutoUpdate="true"/>
+          <p:ajax event="rowUnselectCheckbox" update="@this" global="false" ignoreAutoUpdate="true"/>
+          <p:ajax event="toggleSelect" update="@this" global="false" ignoreAutoUpdate="true"/>
+  
+          <p:column selectionMode="multiple" styleClass="fob-column-shrink fob-center" />
+  
+          <p:column headerText="Column" styleClass="fob-center">
+            <h:outputText value="#{row}" />
+          </p:column>
+        </p:dataTable>
+      </h:form>
+
     </h:body>
 </html>
