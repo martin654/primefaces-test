@@ -16,6 +16,10 @@
       <h:form>
        <p:commandButton value="Process and update form" process="@form" update="@form" />
     
+       <p:messages id="globalMessages" showDetail="true" closable="true" styleClass="top-messages">
+        <p:autoUpdate />
+       </p:messages>
+    
        <p:dataTable id="carsTable" var="car" value="#{testView.cars}">
             <p:column headerText="Name">
               <h:outputText value="#{car.name}" />              

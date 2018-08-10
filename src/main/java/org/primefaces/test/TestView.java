@@ -32,7 +32,7 @@ public class TestView implements Serializable {
       columnKeys.add("ColumnId" + j);
     }
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 3; i++) {
       Car car = new Car();
       cars.add(car);
       car.setName("Cool car name " + i);
