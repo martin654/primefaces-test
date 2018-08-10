@@ -13,6 +13,21 @@
         <h1>#{testView.testString}</h1>
 
         <h1>#{testViewCdi.testString}</h1>
+      <h:form>
+       <p:commandButton value="Process and update form" process="@form" update="@form" />
+    
+       <p:dataTable id="carsTable" var="car" value="#{testView.cars}">
+            <p:column headerText="Name">
+              <h:outputText value="#{car.name}" />              
+            </p:column>
 
+            <p:columns value="#{testView.columnKeys}" var="columnKey" columnIndexVar="colIndex">
+              <f:facet name="header">
+                  <h:outputText value="attribute" />
+                </f:facet>
+                <p:inputText value="#{car.attributesMap[columnKey]}" required="true" />
+            </p:columns>
+          </p:dataTable>
+      </h:form>
     </h:body>
 </html>
